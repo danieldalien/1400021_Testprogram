@@ -1,0 +1,9 @@
+L'idée, transposée au projet Phillips est donc la suivante (c'est donc le "flowchart" fonctionnel):
+
+- Le client (programme sur PC) se connecte au serveur et envoie une commande (avec ID de l'armoire, type, ...)
+- Le serveur (Doosan) vérifie que la commande est valide et réponds avec un NACK si invalide, ACK si valide. Si elle est valide, le processus de test est lancé.
+- Le client attend
+- En fin de test (ou après chaque mesure - choix à faire), le serveur renvoie les données récoltées
+- Le client interrompt la connexion
+
+Au niveau du format des données échangées: je propose le format JSON, qui est basé sur du texte, et très facile à parser dans à peu près tous les languages (des librairies existent). Je ne sais pas si nous aurons accès à la librairie json de Python sur le Doosan, mais si ce n'est pas le cas, il est assez simple de la remplacer par un peu de code Python "normal".
